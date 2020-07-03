@@ -1,0 +1,173 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-03 10:33:46
+ * @LastEditTime: 2020-07-03 17:18:05
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /StudyNotes/Users/caoyong/Documents/github/InterviewRecord/CSS/css3动画.html
+--> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      padding: 30px;
+      text-align: center;
+      box-sizing: border-box;
+      border: 1px solid black;
+    }
+    .transition {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      transition: all 2s 0.5s ease;
+    }
+    .transition:hover {
+      width: 200px;
+      height: 200px;
+      transition: all 2s 0.5s ease;
+    }
+    .compare {
+      display: flex;
+    }
+    .compare-item {
+      width: 50%;
+      margin: 0 10px 0 0;
+    }
+    .compare-item:last-of-type {
+      margin: 0;
+    }
+    .translate {
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+    }
+    .translate:hover {
+      transform: translate(100px, 100px);
+    }
+    .scale {
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+    }
+    .scale:hover {
+      transform: scale(0.5);
+    }
+    .rotate {
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+    }
+    .rotate:hover {
+      transform: rotate(45deg);
+    }
+    .skew {
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+    }
+    .skew:hover {
+      transform: skewX(45deg);
+    }
+    .translate-3D {
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+    }
+    .translate-3D:hover {
+      transform: rotateX(89deg);
+      transform: translate(100px, 100px, 100px);
+    }
+    .rotate-3D {
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+    }
+    .rotate-3D:hover {
+      transform: rotateZ(45deg);
+    }
+    .animation-box {
+      height: 350px;
+      padding: 30px;
+      box-sizing: border-box;
+      border: 1px solid black;
+    }
+    .animation {
+      width: 100px;
+      height: 100px;
+      background: pink;
+      position:relative;
+      -webkit-animation: changeColor 5s linear 1s 1 alternate-reverse both;
+      animation: changeColor 5s linear 1s 1 alternate-reverse both;
+    }
+
+    @-webkit-keyframes changeColor {
+      0%   {background:red; left:0px; top:0px;}
+      25%  {background:yellow; left:200px; top:0px;}
+      50%  {background:blue; left:200px; top:200px;}
+      75%  {background:green; left:0px; top:200px;}
+      100% {background:red; left:0px; top:0px;}
+    }
+    @keyframes changeColor {
+      0%   {background:red; left:0px; top:0px;}
+      25%  {background:yellow; left:200px; top:0px;}
+      50%  {background:blue; left:200px; top:200px;}
+      75%  {background:green; left:0px; top:200px;}
+      100% {background:red; left:0px; top:0px;}
+    }
+  </style>
+</head>
+<body>
+  <h1>transition</h1>
+  <div class="box">
+    <div class="transition"></div>
+  </div>
+  <div class="compare">
+    <div class="compare-item">
+      <h1>transform 2D</h1>
+      <div class="box">
+        <h1>translate(X, Y)</h1>
+        <div class="translate"></div>
+      </div>
+      <div class="box">
+        <h1>scale(X, Y)</h1>
+        <div class="scale"></div>
+      </div>
+      <div class="box">
+        <h1>rotate(X, Y)</h1>
+        <div class="rotate"></div>
+      </div>
+      <div class="box">
+        <h1>skew(X, Y)</h1>
+        <div class="skew"></div>
+      </div>
+    </div>
+    <div class="compare-item">
+      <h1>transform 3D</h1>
+      <div class="box">
+        <h1>translate(X, Y, Z)</h1>
+        <div class="translate-3D"></div>
+      </div>
+      <div class="box">
+        <h1>scale(X, Y)没有3D</h1>
+        <div class="scale"></div>
+      </div>
+      <div class="box">
+        <h1>rotate(X, Y, Z)</h1>
+        <div class="rotate-3D"></div>
+      </div>
+      <div class="box">
+        <h1>skew(X, Y)没有3D</h1>
+        <div class="skew"></div>
+      </div>
+    </div>
+  </div>
+  <h1>animation</h1>
+  <div class="animation-box">
+    <div class="animation"></div>
+  </div>
+</body>
+</html>
