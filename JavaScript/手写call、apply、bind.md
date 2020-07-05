@@ -19,7 +19,7 @@ fn.call(obj, 1, 2, 3); // 0 1 2 3
 - call的调用改变了调用函数fn的this的指向（this -> obj）;
 - fn函数的参数通过call传递过来并且执行了输出；
 
-分析+解决：
+分析 + 实现：
   1. 函数在访问this.val的时候怎么调用到obj的val：
       - 首先函数必须跟val的this指向是一致的才可以：
         ```javascript
@@ -66,7 +66,7 @@ fn.call(obj, 1, 2, 3); // 0 1 2 3
         }
 
         var result = eval(`context.fn(${args})`);
-        
+
         delete context.fn;
         return result;
       }
@@ -74,3 +74,31 @@ fn.call(obj, 1, 2, 3); // 0 1 2 3
 以上为call的模拟实现；
 
 #### myApply实现
+
+基于上面call的模拟实现apply的实现就显得轻而易举了
+
+分析 + 实现：
+  1. call跟apply的不同之处在哪？两者的传递参数的方式不同，apply采用的传参方式是数组，在这里针对call稍作修改即可：
+      ```javascript
+      Function.prototype.myCall = function (context， args) {
+        context = context || window;
+        context.fn = this;
+
+        var result;
+        if (args) {
+          for (var i = 0; i < arguments.length; i++) {
+            args.push(`arguments[${i}]`)
+          }
+          result = eval(`context.fn(${args})`);
+        } else {
+          result = context.fn();
+        }
+
+
+
+        delete context.fn;
+        return result;
+      }
+      ```
+    当然这里需要对args做一下容错处理；
+

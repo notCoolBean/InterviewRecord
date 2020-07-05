@@ -1,15 +1,14 @@
 /*
  * @Author: Bean
- * @LastEditors: Please set LastEditors
+ * @LastEditors: Bean
  * @Date: 2020-07-03 09:10:57
- * @LastEditTime: 2020-07-03 10:10:43
- * @Description: call、apply、bind的模拟实现
+ * @LastEditTime: 2020-07-04 19:35:01
+ * @Description: file content
  * @FilePath: /StudyNotes/Users/caoyong/Documents/github/InterviewRecord/JavaScript/手写call、apply、bind.js
- */ 
-
+ */
 // myCall实现
 var obj = {
-  val: 0
+  val: 123
 }
 
 function fn(a, b, c) {
@@ -32,10 +31,26 @@ Function.prototype.myCall = function (context) {
   return result;
 }
 
+Function.prototype.myApply = function (context, args) {
+  context = context || window;
+  context.fn = this;
+  
+  for (var i = 0; i < args; i++) {
+    args.push(`args[${i}]`)
+  }
+
+  var result = eval(`context.fn(${args})`);
+  
+  delete context.fn;
+  return result;
+}
+
 let a = fn.call(obj, 1, 2, 3);
 let b = fn.myCall(obj, 1, 2, 3);
+let c = fn.apply(obj, [1, 2, 3]);
+let d = fn.myApply(obj, [1, 2, 3]);
 
-console.log(a, b);
+console.log(a, b, c, d);
 
 
 
