@@ -1,0 +1,167 @@
+<!--
+ * @Author: Bean
+ * @LastEditors: Bean
+ * @Date: 2020-07-10 17:29:05
+ * @LastEditTime: 2020-07-10 18:27:36
+ * @Description: file content
+ * @FilePath: /InterviewRecord/HTML/元素居中.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>元素居中</title>
+  <style>
+    h1, h2, p {
+      padding: 0;
+      margin: 0;
+    }
+    .container {
+      border: 1px solid #000;
+      padding: 10px;
+    }
+    .box {
+      min-height: 24px;
+      border: 1px solid #000;
+    }
+    .inline-center {
+      text-align: center;
+    }
+    .box span{
+      background: green;
+    }
+    .box1 {
+      padding-left: 10px;
+    }
+    .block-center {
+      width: 150px;
+      margin: 0 auto;
+    }
+    .table-center {
+      display: table;
+      margin: 0 auto;
+    }
+    .relative {
+      position: relative;
+    }
+    .absolute {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .flex {
+      display: flex;
+    }
+    .justify {
+      justify-content: center;
+    }
+    .color {
+      width: 50px;
+      background: red;
+      border: 1px solid #000;
+      overflow: hidden;
+      word-break: break-all;
+      box-sizing: border-box;
+    }
+    .fontSizeNull {
+      font-size: 0;
+    }
+    .inline-block {
+      width: 50px;
+      font-size: 16px;
+      background: red;
+      border: 1px solid #000;
+      display: inline-block;
+      overflow: hidden;
+      word-break: break-all;
+      box-sizing: border-box;
+    }
+    .width {
+      width: 100px;
+    }
+    .float {
+      float: left;
+      background-color: red;
+    }
+    .relative {
+      position: relative;
+      left: 50%;
+    }
+    .marginL50px {
+      margin-left: -50px;
+    }
+    .transform {
+      transform: translateX(-50%);
+    }
+    .floatFlex {
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>1.水平居中</h1>
+    <div class="container">
+      <p>a.行内元素水平居中，父元素设置'text-align：center；'</p>
+      <div class="box inline-center">
+        <span>行内元素水平居中span</span>
+      </div>
+      <p>b.块级元素水平居中</p>
+      <div class="box1">
+        <p>i.将块级元素的外边距设置auto,子元素宽度已知</p>
+        <div class="box">
+          <div class="block-center">块级元素水平居中div</div>
+        </div>
+        <p>ii.使用table+margin</p>
+        <div class="box">
+          <div class="table-center">块级元素水平居中div</div>
+        </div>
+        <p>ii.absolute+transform(脱离文档流)</p>
+        <div class="box relative">
+          <div class="absolute">块级元素水平居中div</div>
+        </div>
+        <p>iii.flex+justify-content</p>
+        <div class="box flex justify">
+          <div>块级元素水平居中div</div>
+        </div>
+        <p>iv.flex+margin</p>
+        <div class="box flex">
+          <div class="block-center">块级元素水平居中div</div>
+        </div>
+      </div>
+      <p>c.多块级元素水平居中</p>
+      <div class="box1">
+        <p>i.flex+justify-context</p>
+        <div class="box flex justify">
+          <div class="color">11111111</div>
+          <div class="color">22222222</div>
+          <div class="color">33333333</div>
+        </div>
+        <p>i.将子元素转化为inline-block</p>
+        <div class="box inline-center fontSizeNull">
+          <div class="inline-block">11111111</div>
+          <div class="inline-block">22222222</div>
+          <div class="inline-block">33333333</div>
+        </div>
+      </div>
+      <p>d.浮动元素水平居中</p>
+      <div class="box1">
+        <p>i.对于定宽的元素设置子元素relative定位+margin：</p>
+        <div class="box">
+          <div class="float relative width marginL50px ">11111111</div>
+        </div>
+        <p>ii.对于不定宽的元素设置子元素relative定位+margin：</p>
+        <div class="box">
+          <div class="float relative transform">11111111</div>
+        </div>
+        <p>iii.通用方法flex：</p>
+        <div class="box floatFlex">
+          <div class="float">11111111</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
