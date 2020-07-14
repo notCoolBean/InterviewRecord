@@ -2,7 +2,7 @@
  * @Author: Bean
  * @LastEditors: Bean
  * @Date: 2020-07-10 17:29:05
- * @LastEditTime: 2020-07-10 18:27:36
+ * @LastEditTime: 2020-07-14 16:40:57
  * @Description: file content
  * @FilePath: /InterviewRecord/HTML/元素居中.html
 -->
@@ -45,7 +45,7 @@
     .relative {
       position: relative;
     }
-    .absolute {
+    .absolute-50 {
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
@@ -79,12 +79,13 @@
     }
     .width {
       width: 100px;
+      background-color: red;
     }
     .float {
       float: left;
       background-color: red;
     }
-    .relative {
+    .relative-50 {
       position: relative;
       left: 50%;
     }
@@ -97,6 +98,12 @@
     .floatFlex {
       display: flex;
       justify-content: center;
+    }
+    .absolute {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
     }
   </style>
 </head>
@@ -120,7 +127,7 @@
         </div>
         <p>ii.absolute+transform(脱离文档流)</p>
         <div class="box relative">
-          <div class="absolute">块级元素水平居中div</div>
+          <div class="absolute-50">块级元素水平居中div</div>
         </div>
         <p>iii.flex+justify-content</p>
         <div class="box flex justify">
@@ -150,15 +157,22 @@
       <div class="box1">
         <p>i.对于定宽的元素设置子元素relative定位+margin：</p>
         <div class="box">
-          <div class="float relative width marginL50px ">11111111</div>
+          <div class="float relative-50 width marginL50px ">11111111</div>
         </div>
         <p>ii.对于不定宽的元素设置子元素relative定位+margin：</p>
         <div class="box">
-          <div class="float relative transform">11111111</div>
+          <div class="float relative-50 transform">11111111</div>
         </div>
         <p>iii.通用方法flex：</p>
         <div class="box floatFlex">
           <div class="float">11111111</div>
+        </div>
+      </div>
+      <p>d.绝对定位元素水平居中</p>
+      <div class="box1">
+        <p>i.通用方法flex：</p>
+        <div class="box relative">
+          <div class="width absolute">11111111</div>
         </div>
       </div>
     </div>

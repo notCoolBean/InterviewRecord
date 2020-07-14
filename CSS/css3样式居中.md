@@ -151,3 +151,21 @@
           <div class="child">行内元素居中</div>
         </div>
         ```
+  5. 绝对定位元素水平居中：
+      ```html
+      <style>
+        .box {
+          position: relative;
+        }
+        .child {
+          width: 100px;
+          position: absolute;
+          left: 0;
+          right: 0;
+          margin: 0 auto;
+        }
+      </style>
+      <div class="box">
+        <div class="child">行内元素居中</div>
+      </div>
+      ```
