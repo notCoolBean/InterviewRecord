@@ -169,3 +169,147 @@
         <div class="child">行内元素居中</div>
       </div>
       ```
+
+### 垂直居中
+  1. 单行内元素垂直居中：
+      ```html
+      <style>
+        .box {
+          height: 100px;
+          line-height: 100px;
+        }
+      </style>
+      <div class="box">
+        <span>行内元素居中</span>
+      </div>
+      ```
+  2. 多行行内元素词垂直居中：
+      a. 利用flex布局：
+      ```html
+      <style>
+        .box {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+      </style>
+      <div class="box">
+        <span>行内元素居中</span>
+      </div>
+      ```
+      b. 利用table+子元素vertical-align：
+      ```html
+      <style>
+        .box {
+          display: table;
+        }
+        .child {
+          display: table-cell;
+          vertical-align: middle;
+        }
+      </style>
+      <div class="box">
+        <p class="child">行内元素居中行内元素居中行内元素居中行内元素居中行内元素居中行内元素居中行内元素居中行内元素居中行内元素居中行内元素居中行内元素居中</p>
+      </div>
+      ```
+  3. 块级元素垂直居中：
+      a. 绝对定位+负距离边距absolute+margin(子元素已知高度)：
+      ```html
+      <style>
+        .box {
+          position: relation;
+        }
+        .child {
+          height: 100px;
+          position: absolute;
+          top: 50%;
+          margin-top: -50px;
+        }
+      </style>
+      <div class="box">
+        <div class="child">行内元素</div>
+      </div>
+      ```
+      b. 绝对定位+反向移动absolute+transform(子元素高度不要求)：
+      ```html
+      <style>
+        .box {
+          position: relation;
+        }
+        .child {
+          height: 100px;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      </style>
+      <div class="box">
+        <div class="child">行内元素</div>
+      </div>
+      ```
+      c. 弹性盒布局flex + align-items
+      ```html
+      <style>
+        .box {
+          display: flex;
+          align-items: center;
+        }
+      </style>
+      <div class="box">
+        <div class="child">行内元素</div>
+      </div>
+      ```
+      d. table布局+子元素table-cell+vertical-align
+      ```html
+      <style>
+        .box {
+          display: table-cell;
+          vertical-align: middle;
+        }
+      </style>
+      <div class="box">
+        <div class="child">行内元素</div>
+      </div>
+      ```
+
+### 水平垂直居中
+  1. 绝对定位+负边距（已知元素高度宽度）：
+      ```html
+      <style>
+        .box {
+          position: relative;
+        }
+        .child {
+          width: 100px;
+          height: 100px;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          margin: -50px 0 0 -50px;
+        }
+      </style>
+      <div class="box">
+        <div class="child">行内元素</div>
+      </div>
+      ```
+  2. 绝对定位+margin auto（已知元素高度宽度）：
+      ```html
+      <style>
+        .box {
+          position: relative;
+        }
+        .child {
+          width: 100px;
+          height: 100px;
+          position: absolute;
+          left: 0;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto;
+        }
+      </style>
+      <div class="box">
+        <div class="child">行内元素</div>
+      </div>
+      ```
